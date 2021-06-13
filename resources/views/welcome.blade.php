@@ -20,7 +20,8 @@
     <table>
         @forelse($tags as $tag)
             <tr>
-                <td class="w-full px-4 py-2 border">{{ $tag->name }}</td>
+                <td class="w-1/2 px-4 py-2 border">{{ $tag->name }}</td>
+                <td class="w-1/2 px-4 py-2 border">{{ $tag->slug }}</td>
                 <td>
                     <form action="tags/{{ $tag->id }}" method="post">
                         @csrf
