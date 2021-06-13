@@ -27,4 +27,10 @@ class TagControllerTest extends TestCase
 
         $this->assertDatabaseMissing('tags', ['name' => $tag->name]);
     }
+    public function test_store_validate()
+    {
+        $this->post('tags', ['name' => ''])
+            ->assertSessionHasErrors('name');
+
+    }
 }
