@@ -18,3 +18,5 @@ Route::get('/', function () {
         'tags' => \App\Models\Tag::latest()->get()
     ]);
 });
+
+Route::resource('tags',\App\Http\Controllers\TagController::class);
