@@ -10,6 +10,13 @@
 </head>
 <body class="bg-gray-300 py-10">
 <div class="max-w-lg bg-white mx-auto rounded-xl p-4 shadow">
+    @if($errors->any())
+        <ul class="list-none bg-red-100 text-red-500 p-4 mb-4 rounded-lg">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
     <form action="tags" method="post" class="flex mb-4">
         @csrf
         @method('POST')
@@ -26,7 +33,7 @@
                     <form action="tags/{{ $tag->id }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="bg-red-500 text-white px-4 py-2 outline-none">Eliminar</button>
+                        <button type="submit" class="bg-red-500 text-white px-4 py-2 outline-none rounded-lg">Eliminar</button>
                     </form>
                 </td>
             </tr>
